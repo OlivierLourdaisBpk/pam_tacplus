@@ -645,8 +645,16 @@ int pam_sm_acct_mgmt(pam_handle_t *pamh, int UNUSED(flags), int argc,
 	 than TACACS+ */
 	if (active_server.addr == NULL)
 	{
-		_pam_log(LOG_ERR, "user not authenticated by TACACS+");
-		return PAM_AUTH_ERR;
+		if (ctrl & PAM_TAC_IGNORE_UNKNOWN_USER)
+		{
+			_pam_log(LOG_WARNING, "user not authenticated by TACACS+");
+			return PAM_IGNORE;
+		}
+		else
+		{
+			_pam_log(LOG_ERR, "user not authenticated by TACACS+");
+			return PAM_AUTH_ERR;
+		}
 	}
 	if (ctrl & PAM_TAC_DEBUG)
 		syslog(LOG_DEBUG, "%s: active server is [%s]", __FUNCTION__,

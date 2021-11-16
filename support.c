@@ -429,6 +429,10 @@ int _pam_parse(int argc, const char **argv)
                 tac_readtimeout_enable = 1;
             }
         }
+        else if (!strcmp(*argv, "ignore_unknown_user"))
+        {
+            ctrl |= PAM_TAC_IGNORE_UNKNOWN_USER;
+        }
         else
         {
             _pam_log(LOG_WARNING, "unrecognized option: %s", *argv);

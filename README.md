@@ -54,6 +54,7 @@ on variety of operating systems.
 | `timeout` | ALL | *integer* connection timeout in seconds; default is 5 seconds |
 | `login` | auth | TACACS+ authentication service, this can be *pap*, *chap* or *login*; default is *pap* |
 | `prompt` | auth | *string* custom password prompt; use `_` instead of spaces  |
+| `ignore_unknown_user` | account | Specifies that `pam_tacplus` should return `PAM_IGNORE` for users that were authenticated by method other than TACACS+ |
 | `acct_all` | session | if multiple servers are supplied, pam\_tacplus will send accounting start/stop packets to all servers on the list |
 | `service` | account, session | *string* TACACS+ service for authorization and accounting |
 | `protocol` | account, session | *string* TACACS+ protocol for authorization and accounting |

@@ -36,6 +36,7 @@
 #define PAM_TAC_ACCT  0x02 /* account on all specified servers */
 #define PAM_TAC_USE_FIRST_PASS 0x04
 #define PAM_TAC_TRY_FIRST_PASS 0x08
+#define PAM_TAC_IGNORE_UNKNOWN_USER 0x10
 
 #ifndef PAM_EXTERN
 #define PAM_EXTERN extern
